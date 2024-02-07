@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import JSConfetti from "js-confetti";
-import MyApp from "./MyApp";
+import backgroundMusic from "./assets/musica.mp3";
+import ReactAudioPlayer from "react-audio-player";
 
 function App() {
   const jsConfetti = new JSConfetti();
@@ -82,9 +83,14 @@ function App() {
     setImagenCargada(true);
   };
 
+  useEffect(() => {
+    const audio = new Audio(backgroundMusic);
+    audio.play();
+    audio.loop = true;
+  }, []);
+
   return (
     <>
-    <MyApp/>
       <main
         id="canvas"
         className="fondo w-screen h-screen bg-no-repeat bg-cover flex items-center justify-center bg-center "
@@ -94,6 +100,14 @@ function App() {
             <h1 className="text-white font-bold text-5xl text-center">
               ¿Quieres ser mi San Valentin?
             </h1>
+            <ReactAudioPlayer
+              className="text-center w-full text-red-500"
+              style={{ color: "red" }}
+              autoPlay={true}
+              src={backgroundMusic}
+              loop
+              controls
+            />
             <img
               src={
                 Object.keys(randomValor).length === 0
@@ -145,7 +159,6 @@ function App() {
           </div>
         )}
       </main>
-      
     </>
   );
 }
