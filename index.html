@@ -1,13 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/LOGOCORAZON.webp" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./src/assets/LOGOCORAZON.webp"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VALENTINES DAY</title>
   </head>
   <body>
     <div id="root"></div>
+    <audio id="musica" autoplay loop>
+      <source
+        src="./src/assets/WhatsApp-Audio-2024-02-07-at-11.49.39-AM.mp3"
+        type="audio/mp3"
+      />
+    </audio>
+    <script>
+      function PlayAudio() {
+        document.getElementById("musica").play();
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
